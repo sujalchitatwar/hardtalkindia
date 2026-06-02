@@ -42,8 +42,8 @@ export default function ReelsManager() {
   const openEdit = (reel: Reel) => {
     setEditing(reel);
     setForm({
-      title: reel.title, instagram_url: reel.instagram_url || '', video_url: reel.video_url || '',
-      category: reel.category || '', embed_code: reel.embed_code || '', is_featured: reel.is_featured,
+      title: reel.title, instagram_url: reel.instagram_url ?? '', video_url: reel.video_url ?? '',
+      category: reel.category ?? '', embed_code: reel.embed_code ?? '', is_featured: reel.is_featured,
     });
     setShowModal(true);
   };
@@ -57,10 +57,10 @@ export default function ReelsManager() {
     try {
       const payload = {
         ...form,
-        instagram_url: form.instagram_url || null,
-        video_url: form.video_url || null,
-        category: form.category || null,
-        embed_code: form.embed_code || null,
+        instagram_url: form.instagram_url.trim() || undefined,
+        video_url: form.video_url.trim() || undefined,
+        category: form.category.trim() || undefined,
+        embed_code: form.embed_code.trim() || undefined,
       };
       if (editing) {
         const { error } = await supabaseUntyped.from('reels').update(payload as any).eq('id', editing.id);

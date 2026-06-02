@@ -51,14 +51,14 @@ function ReelImage({ src, alt, className, category }: { src: string; alt: string
 }
 
 const PLACEHOLDER_REELS: Reel[] = [
-  { id: '1', title: 'Zirakpur harassment caught on camera', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Women Safety', thumbnail_url: '', views_count: 45000, is_featured: true, created_at: '2025-05-28T10:00:00Z' },
-  { id: '2', title: 'Real face of Indian politics', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Politics', thumbnail_url: '', views_count: 32000, is_featured: true, created_at: '2025-05-27T08:00:00Z' },
-  { id: '3', title: 'Civic sense fail - Tourist edition', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Ground Reports', thumbnail_url: '', views_count: 28000, is_featured: true, created_at: '2025-05-26T12:00:00Z' },
-  { id: '4', title: 'Racism against Indians abroad', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 51000, is_featured: true, created_at: '2025-05-25T15:00:00Z' },
-  { id: '5', title: 'Toll plaza reality check', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 22000, is_featured: false, created_at: '2025-05-24T09:00:00Z' },
-  { id: '6', title: 'Survivor story: She fought back', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Survivor Stories', thumbnail_url: '', views_count: 38000, is_featured: true, created_at: '2025-05-23T11:00:00Z' },
-  { id: '7', title: 'Fake news debunked: The truth', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Fake News Debunked', thumbnail_url: '', views_count: 19000, is_featured: false, created_at: '2025-05-22T14:00:00Z' },
-  { id: '8', title: 'Police system failure exposed', instagram_url: 'https://instagram.com/HardTalkIndia', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 41000, is_featured: true, created_at: '2025-05-21T10:00:00Z' },
+  { id: '1', title: 'Zirakpur harassment caught on camera', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Women Safety', thumbnail_url: '', views_count: 45000, is_featured: true, created_at: '2025-05-28T10:00:00Z' },
+  { id: '2', title: 'Real face of Indian politics', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Politics', thumbnail_url: '', views_count: 32000, is_featured: true, created_at: '2025-05-27T08:00:00Z' },
+  { id: '3', title: 'Civic sense fail - Tourist edition', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Ground Reports', thumbnail_url: '', views_count: 28000, is_featured: true, created_at: '2025-05-26T12:00:00Z' },
+  { id: '4', title: 'Racism against Indians abroad', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 51000, is_featured: true, created_at: '2025-05-25T15:00:00Z' },
+  { id: '5', title: 'Toll plaza reality check', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 22000, is_featured: false, created_at: '2025-05-24T09:00:00Z' },
+  { id: '6', title: 'Survivor story: She fought back', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Survivor Stories', thumbnail_url: '', views_count: 38000, is_featured: true, created_at: '2025-05-23T11:00:00Z' },
+  { id: '7', title: 'Fake news debunked: The truth', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Fake News Debunked', thumbnail_url: '', views_count: 19000, is_featured: false, created_at: '2025-05-22T14:00:00Z' },
+  { id: '8', title: 'Police system failure exposed', instagram_url: 'https://instagram.com/HardTalkIndia', video_url: '', embed_code: null, category: 'Crime', thumbnail_url: '', views_count: 41000, is_featured: true, created_at: '2025-05-21T10:00:00Z' },
 ];
 
 export default function VideoHub() {

@@ -150,7 +150,7 @@ export default function ReelsManager() {
                     </td>
                     <td className="px-4 py-3 text-right">
                       <div className="flex items-center justify-end gap-1">
-                        <a href={reel.instagram_url} target="_blank" rel="noopener noreferrer"
+                        <a href={reel.instagram_url ?? '#'} target="_blank" rel="noopener noreferrer"
                           className="p-1.5 rounded hover:bg-white/5 text-hti-gray hover:text-hti-primary" title="Open">
                           <ExternalLink className="w-3.5 h-3.5" />
                         </a>

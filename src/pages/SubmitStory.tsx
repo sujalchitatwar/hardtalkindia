@@ -81,11 +81,10 @@ export default function SubmitStory() {
         category: formData.category,
         evidence_urls: evidenceUrls.length > 0 ? evidenceUrls : undefined,
         is_anonymous: isAnonymous,
-        admin_notes: formData.instagram_link ? `Instagram Link: ${formData.instagram_link}` : undefined,
       });
 
       addToast('Story submitted successfully! Our team will review it.', 'success');
-      setFormData({ name: '', email: '', phone: '', story_title: '', story_content: '', category: '' });
+      setFormData({ name: '', email: '', phone: '', story_title: '', story_content: '', category: '', instagram_link: '' });
       setFiles([]);
       setIsAnonymous(false);
     } catch (err: any) {

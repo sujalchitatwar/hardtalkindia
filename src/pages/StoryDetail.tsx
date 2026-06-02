@@ -21,30 +21,144 @@ const DEFAULT_IMAGES: Record<string, string> = {
 };
 
 const PLACEHOLDER_STORIES: Story[] = [
-  { id: '1', title: 'Oh baby chalega? Zirakpur ma ladki ka khuleaam harassment', slug: 'zirakpur-harassment', content: '', excerpt: 'A shocking incident...', category: 'Women Safety', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: true, is_breaking: true, views_count: 12500, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-28T10:00:00Z', updated_at: '2025-05-28T10:00:00Z' },
-  { id: '2', title: 'India ke liye asli khatra kya hai?', slug: 'india-real-threat', content: '', excerpt: 'An in-depth analysis...', category: 'Politics', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 8900, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-27T08:00:00Z', updated_at: '2025-05-27T08:00:00Z' },
-  { id: '3', title: 'Kya Indian Tourists ko Civic Sense sikhane ki zarurat hai?', slug: 'indian-tourists-civic-sense', content: '', excerpt: 'From littering...', category: 'Ground Reports', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 7200, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-26T12:00:00Z', updated_at: '2025-05-26T12:00:00Z' },
-  { id: '4', title: 'America ma ek Indian couple ke sath khuleaam badtameezi', slug: 'america-indian-couple-racism', content: '', excerpt: 'An Indian couple...', category: 'Crime', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: true, views_count: 15400, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-25T15:00:00Z', updated_at: '2025-05-25T15:00:00Z' },
-  { id: '5', title: 'Toll plaza par aap sochte hai aap safe hai?', slug: 'toll-plaza-safety', content: '', excerpt: 'The reality...', category: 'Crime', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 9800, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-24T09:00:00Z', updated_at: '2025-05-24T09:00:00Z' },
-  { id: '6', title: 'Political satire: Jumla vs Reality', slug: 'political-satire-jumla', content: '', excerpt: 'A satirical take...', category: 'Politics', thumbnail_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 6500, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-23T11:00:00Z', updated_at: '2025-05-23T11:00:00Z' },
+  { id: '1', title: 'Oh baby chalega? Zirakpur ma ladki ka khuleaam harassment', slug: 'zirakpur-harassment', content: '', excerpt: 'A shocking incident...', category: 'Women Safety', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: true, is_breaking: true, views_count: 12500, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-28T10:00:00Z', updated_at: '2025-05-28T10:00:00Z' },
+  { id: '2', title: 'India ke liye asli khatra kya hai?', slug: 'india-real-threat', content: '', excerpt: 'An in-depth analysis...', category: 'Politics', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 8900, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-27T08:00:00Z', updated_at: '2025-05-27T08:00:00Z' },
+  { id: '3', title: 'Kya Indian Tourists ko Civic Sense sikhane ki zarurat hai?', slug: 'indian-tourists-civic-sense', content: '', excerpt: 'From littering...', category: 'Ground Reports', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 7200, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-26T12:00:00Z', updated_at: '2025-05-26T12:00:00Z' },
+  { id: '4', title: 'America ma ek Indian couple ke sath khuleaam badtameezi', slug: 'america-indian-couple-racism', content: '', excerpt: 'An Indian couple...', category: 'Crime', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: true, views_count: 15400, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-25T15:00:00Z', updated_at: '2025-05-25T15:00:00Z' },
+  { id: '5', title: 'Toll plaza par aap sochte hai aap safe hai?', slug: 'toll-plaza-safety', content: '', excerpt: 'The reality...', category: 'Crime', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 9800, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-24T09:00:00Z', updated_at: '2025-05-24T09:00:00Z' },
+  { id: '6', title: 'Political satire: Jumla vs Reality', slug: 'political-satire-jumla', content: '', excerpt: 'A satirical take...', category: 'Politics', thumbnail_url: '', video_url: '', reel_url: null, author: 'HardTalkIndia', is_pinned: false, is_breaking: false, views_count: 6500, status: 'published', meta_title: null, meta_description: null, created_at: '2025-05-23T11:00:00Z', updated_at: '2025-05-23T11:00:00Z' },
 ];
 
 function generateContent(story: Story): string {
   const contents: Record<string, string> = {
-    'zirakpur-harassment': `Zirakpur, Punjab - A shocking incident of public harassment has come to light where a young woman was openly harassed by a group of men in broad daylight. The incident, which occurred near the main market area, has sparked massive outrage across social media platforms.\n\nEyewitnesses reported that the woman was walking alone when she was approached by the accused who passed lewd comments and attempted to physically restrain her. The brave victim managed to record parts of the incident on her phone before bystanders intervened.\n\n"Main dar gayi thi, lekin chup nahi reh sakti thi," the victim told HardTalkIndia in an exclusive interview. "Agar hum chup rahenge, toh ye log aur badmaash hote jayenge."\n\nLocal police have registered an FIR under Sections 354, 509, and 34 of the IPC. The accused have been identified and two arrests have been made so far. The SHO of Zirakpur police station has assured swift action.\n\nWomen's rights activists have demanded stricter implementation of safety measures in the area. "This is not an isolated incident. Zirakpur has seen a rise in such cases," said Priya Sharma, a local activist.\n\nThe video has garnered over 2 million views on Instagram, with netizens demanding justice. Hashtags #JusticeForZirakpurGirl and #WomenSafety have been trending since yesterday.\n\nWe at HardTalkIndia demand immediate action and strict punishment for the accused. Women's safety is not a privilege, it is a fundamental right.`,
+    'zirakpur-harassment': `Zirakpur, Punjab - A shocking incident of public harassment has come to light where a young woman was openly harassed by a group of men in broad daylight. The incident, which occurred near the main market area, has sparked massive outrage across social media platforms.
 
-    'india-real-threat': `As India celebrates its growing global stature, HardTalkIndia brings you an unfiltered analysis of the real threats that could destabilize our nation. Beyond the headlines and political rhetoric, here are the ground realities.\n\nINTERNAL THREATS:\nThe Naxal-Maoist insurgency continues to claim lives in Chhattisgarh, Jharkhand, and Odisha. Despite Operation Green Hunt, over 90 districts remain affected. The recent attack in Dantewada that killed 22 security personnel exposed the gaps in our counter-insurgency strategy.\n\nECONOMIC VULNERABILITIES:\nIndia's dependence on foreign oil, the rising NPAs in banking sectors, and the informal economy that employs 90% of the workforce remain ticking time bombs. The agrarian crisis has pushed over 12,000 farmers to suicide annually.\n\nCYBER WARFARE:\nWith 800 million internet users, India is a prime target. The 2020 Mumbai power grid attack, allegedly orchestrated by Chinese hackers, showed our critical infrastructure vulnerability. Our cyber defense budget remains less than 0.01% of GDP.\n\nCOMMUNAL TENSIONS:\nThe polarization along religious lines has reached alarming levels. The recent incidents in Manipur and Haryana show how quickly situations can escalate. Social media has become a breeding ground for hate speech and misinformation.\n\nCLIMATE CHANGE:\nIndia ranks 7th in the Global Climate Risk Index. The melting Himalayan glaciers, rising sea levels threatening coastal cities, and erratic monsoons affecting agriculture are existential threats that need immediate attention.\n\nEXTERNAL THREATS:\nThe two-front war scenario with Pakistan and China remains the biggest military challenge. The PLA's buildup in Ladakh and Pakistan's continued support for cross-border terrorism keeps our defense forces on high alert.\n\nHardTalkIndia believes in presenting the truth, however uncomfortable it may be. Only when we acknowledge our vulnerabilities can we work towards strengthening them.`,
+Eyewitnesses reported that the woman was walking alone when she was approached by the accused who passed lewd comments and attempted to physically restrain her. The brave victim managed to record parts of the incident on her phone before bystanders intervened.
 
-    'indian-tourists-civic-sense': `From the pristine beaches of Bali to the historic streets of Rome, Indian tourists are making their presence felt globally. But not always for the right reasons. HardTalkIndia's ground report exposes the ugly truth behind Indian tourist behavior.\n\nTHE LITTER PROBLEM:\nOur team visited 5 popular international destinations frequented by Indians. The result was shocking. At Pattaya Beach, Thailand, local authorities have put up Hindi signs warning against littering specifically for Indian tourists. "We had to install separate bins with Hindi labels," a municipal worker told us.\n\nDISRESPECTING LOCAL CUSTOMS:\nIn Bali, temples have banned entry to Indian tour groups after incidents of inappropriate behavior. "They take selfies during prayers, wear revealing clothes despite warnings, and speak loudly," said a temple priest who wished to remain anonymous.\n\nTHE EVERYTHING IS NEGOTIABLE MINDSET:\nIndian tourists' obsession with bargaining has become a global stereotype. From street vendors in Vietnam to luxury stores in Dubai, the best price demand is often accompanied by aggressive behavior. A shopkeeper in Istanbul told us, "Indians want 50% discount on items already marked down."\n\nALCOHOL AND PUBLIC DRUNKENNESS:\nIn Goa, which is considered India's party capital, locals are fed up. "They drink on beaches, create ruckus, and harass women," said a shack owner. The recent incident where a tourist drove a car into the sea while drunk went viral.\n\nWHAT CAN BE DONE:\nTravel experts suggest mandatory orientation sessions for tour groups, stricter enforcement of local laws, and a cultural sensitivity campaign. "Travel is a privilege, not a right. We must respect the places we visit," said travel blogger Ankita Kumar.\n\nThe Ministry of Tourism has launched the Atithi Devo Bhava campaign, but ground impact remains minimal. Until we change our mindset, Indian tourists will continue to be viewed as problematic.`,
+"Main dar gayi thi, lekin chup nahi reh sakti thi," the victim told HardTalkIndia in an exclusive interview. "Agar hum chup rahenge, toh ye log aur badmaash hote jayenge."
 
-    'america-indian-couple-racism': `New Jersey, USA - In a disturbing incident that has shaken the Indian diaspora, a couple from Gujarat faced blatant racism and physical assault while dining at a restaurant. What started as a verbal altercation escalated into a hate crime.\n\nRajesh Patel (34) and his wife Priya (31) were at a local diner when a group of white men started mocking their accent. "Go back to your country," one of them shouted before throwing a drink at Priya. When Rajesh intervened, he was punched in the face.\n\n"Hum sirf khaana khaane aaye the," Rajesh told HardTalkIndia via video call, his face still bruised. "We never expected this in America. We pay taxes, we work hard, we are Americans too."\n\nThe incident was captured on CCTV and has since gone viral. The local police have arrested three suspects and charged them with hate crime, assault, and disorderly conduct. The FBI is also investigating the case as a possible federal hate crime.\n\nThe Indian Embassy in Washington has taken cognizance and demanded strict action. "We will not tolerate attacks on our citizens," said Ambassador Taranjit Singh Sandhu.\n\nCOMMUNITY RESPONSE:\nThe Indian community in New Jersey has organized a peaceful protest. Over 500 people gathered at the diner's location, holding placards reading "Hate Has No Home Here" and "We Belong."\n\n"This is not the America we came to," said Dr. Amit Shah, a local physician who has lived in the US for 20 years. "The political rhetoric has emboldened racists."\n\nThe restaurant owner has apologized and banned the accused permanently. A GoFundMe campaign for the couple has raised over $50,000.`,
+Local police have registered an FIR under Sections 354, 509, and 34 of the IPC. The accused have been identified and two arrests have been made so far. The SHO of Zirakpur police station has assured swift action.
 
-    'toll-plaza-safety': `National Highway 44, India's longest highway, sees millions of vehicles daily. But what happens at toll plazas when you stop to pay? HardTalkIndia's undercover investigation reveals the shocking reality.\n\nTHE DARK SIDE OF TOLL PLAZAS:\nOur team spent 72 hours at various toll plazas across NH44. What we found was alarming. Poor lighting, isolated locations, and minimal security make toll plazas perfect targets for criminals.\n\nBetween 2 AM and 5 AM, when traffic is minimal, toll plazas become dangerous zones. We witnessed multiple incidents where truck drivers were robbed at knife-point. The CCTV cameras are either non-functional or strategically positioned to miss the actual crime spots.\n\nTHE STAFF ARE NOT SAFE EITHER:\nToll booth operators work in fear. "We have no security guards after midnight," said Ramesh, a toll operator near Agra. "Last month, our colleague was beaten up when he refused to let a truck pass without paying."\n\nWOMEN AT RISK:\nWomen drivers are particularly vulnerable. The lack of proper lighting in the lanes, absence of panic buttons, and no security personnel make them easy targets. A recent incident near Jaipur where a woman was dragged out of her car at a toll plaza sent shockwaves across the country.\n\nWHAT THE DATA SAYS:\nRTI data reveals that over 2,000 crimes were reported at toll plazas in 2024 alone. These include robbery, assault, harassment, and even murder. The actual numbers are likely much higher as many cases go unreported.\n\nTHE SOLUTION:\nExperts recommend 24/7 security deployment, functional CCTV with cloud backup, emergency SOS buttons every 500 meters, and better lighting infrastructure. The NHAI has promised upgrades, but implementation remains slow.\n\nUntil then, think twice before stopping at a toll plaza late at night. Your safety is in your own hands.`,
+Women's rights activists have demanded stricter implementation of safety measures in the area. "This is not an isolated incident. Zirakpur has seen a rise in such cases," said Priya Sharma, a local activist.
 
-    'political-satire-jumla': `In the grand theater of Indian politics, promises are made with the enthusiasm of a Bollywood hero and forgotten with the speed of a TikTok trend. HardTalkIndia presents "Jumla vs Reality" - the unfiltered truth.\n\nTHE 15 LAKH PROMISE:\nRemember the 2014 promise of depositing 15 lakh rupees in every Indian's account? The reality: Not a single rupee was deposited. The explanation: "It was just an idea, not a promise." The voters: Still waiting.\n\nTHE SMART CITY DREAM:\n100 smart cities were promised. 11 years later, only 33 have been partially developed. The rest exist in PowerPoint presentations. The smart part seems to be limited to smart advertising.\n\nTHE FARMER INCOME DOUBLING:\nDouble farmers' income by 2022. Well, 2022 came and went. Farmer income increased by 27%, which is commendable but far from doubled. The farmers who protested at Delhi borders for a year might have a different opinion.\n\nTHE 2 CRORE JOBS PER YEAR:\nThis was the headline promise of 2014. The reality: India created approximately 12 million jobs in 10 years, averaging 1.2 million per year. The unemployment rate among graduates is at a 45-year high.\n\nTHE CLEAN GANGA MISSION:\nRs 20,000 crores allocated. The Ganga remains polluted. The crocodiles are probably filing environmental complaints. The only thing that flows freely is the funding.\n\nTHE BLACK MONEY BRING BACK:\nSwiss bank accounts were supposed to be emptied into Indian coffers. The result: India's black money in Swiss banks increased by 50% since 2014. Maybe the banks offered a Buy 1 Get 1 Free scheme?\n\nTHE UNFILTERED TRUTH:\nPoliticians across parties are guilty of this. Jumlas are not exclusive to any one party. The Congress promised "Garibi Hatao" in 1971 - poverty still exists. The AAP promised free WiFi in Delhi - most of it does not work.\n\nThe real question is: When will we, the voters, stop falling for these jumlas and start demanding accountability? The power is in our hands, quite literally - it is called the voting machine.`,
+The video has garnered over 2 million views on Instagram, with netizens demanding justice. Hashtags #JusticeForZirakpurGirl and #WomenSafety have been trending since yesterday.
+
+We at HardTalkIndia demand immediate action and strict punishment for the accused. Women's safety is not a privilege, it is a fundamental right.`,
+
+    'india-real-threat': `As India celebrates its growing global stature, HardTalkIndia brings you an unfiltered analysis of the real threats that could destabilize our nation. Beyond the headlines and political rhetoric, here are the ground realities.
+
+INTERNAL THREATS:
+The Naxal-Maoist insurgency continues to claim lives in Chhattisgarh, Jharkhand, and Odisha. Despite Operation Green Hunt, over 90 districts remain affected. The recent attack in Dantewada that killed 22 security personnel exposed the gaps in our counter-insurgency strategy.
+
+ECONOMIC VULNERABILITIES:
+India's dependence on foreign oil, the rising NPAs in banking sectors, and the informal economy that employs 90% of the workforce remain ticking time bombs. The agrarian crisis has pushed over 12,000 farmers to suicide annually.
+
+CYBER WARFARE:
+With 800 million internet users, India is a prime target. The 2020 Mumbai power grid attack, allegedly orchestrated by Chinese hackers, showed our critical infrastructure vulnerability. Our cyber defense budget remains less than 0.01% of GDP.
+
+COMMUNAL TENSIONS:
+The polarization along religious lines has reached alarming levels. The recent incidents in Manipur and Haryana show how quickly situations can escalate. Social media has become a breeding ground for hate speech and misinformation.
+
+CLIMATE CHANGE:
+India ranks 7th in the Global Climate Risk Index. The melting Himalayan glaciers, rising sea levels threatening coastal cities, and erratic monsoons affecting agriculture are existential threats that need immediate attention.
+
+EXTERNAL THREATS:
+The two-front war scenario with Pakistan and China remains the biggest military challenge. The PLA's buildup in Ladakh and Pakistan's continued support for cross-border terrorism keeps our defense forces on high alert.
+
+HardTalkIndia believes in presenting the truth, however uncomfortable it may be. Only when we acknowledge our vulnerabilities can we work towards strengthening them.`,
+
+    'indian-tourists-civic-sense': `From the pristine beaches of Bali to the historic streets of Rome, Indian tourists are making their presence felt globally. But not always for the right reasons. HardTalkIndia's ground report exposes the ugly truth behind Indian tourist behavior.
+
+THE LITTER PROBLEM:
+Our team visited 5 popular international destinations frequented by Indians. The result was shocking. At Pattaya Beach, Thailand, local authorities have put up Hindi signs warning against littering specifically for Indian tourists. "We had to install separate bins with Hindi labels," a municipal worker told us.
+
+DISRESPECTING LOCAL CUSTOMS:
+In Bali, temples have banned entry to Indian tour groups after incidents of inappropriate behavior. "They take selfies during prayers, wear revealing clothes despite warnings, and speak loudly," said a temple priest who wished to remain anonymous.
+
+THE EVERYTHING IS NEGOTIABLE MINDSET:
+Indian tourists' obsession with bargaining has become a global stereotype. From street vendors in Vietnam to luxury stores in Dubai, the best price demand is often accompanied by aggressive behavior. A shopkeeper in Istanbul told us, "Indians want 50% discount on items already marked down."
+
+ALCOHOL AND PUBLIC DRUNKENNESS:
+In Goa, which is considered India's party capital, locals are fed up. "They drink on beaches, create ruckus, and harass women," said a shack owner. The recent incident where a tourist drove a car into the sea while drunk went viral.
+
+WHAT CAN BE DONE:
+Travel experts suggest mandatory orientation sessions for tour groups, stricter enforcement of local laws, and a cultural sensitivity campaign. "Travel is a privilege, not a right. We must respect the places we visit," said travel blogger Ankita Kumar.
+
+The Ministry of Tourism has launched the Atithi Devo Bhava campaign, but ground impact remains minimal. Until we change our mindset, Indian tourists will continue to be viewed as problematic.`,
+
+    'america-indian-couple-racism': `New Jersey, USA - In a disturbing incident that has shaken the Indian diaspora, a couple from Gujarat faced blatant racism and physical assault while dining at a restaurant. What started as a verbal altercation escalated into a hate crime.
+
+Rajesh Patel (34) and his wife Priya (31) were at a local diner when a group of white men started mocking their accent. "Go back to your country," one of them shouted before throwing a drink at Priya. When Rajesh intervened, he was punched in the face.
+
+"Hum sirf khaana khaane aaye the," Rajesh told HardTalkIndia via video call, his face still bruised. "We never expected this in America. We pay taxes, we work hard, we are Americans too."
+
+The incident was captured on CCTV and has since gone viral. The local police have arrested three suspects and charged them with hate crime, assault, and disorderly conduct. The FBI is also investigating the case as a possible federal hate crime.
+
+The Indian Embassy in Washington has taken cognizance and demanded strict action. "We will not tolerate attacks on our citizens," said Ambassador Taranjit Singh Sandhu.
+
+COMMUNITY RESPONSE:
+The Indian community in New Jersey has organized a peaceful protest. Over 500 people gathered at the diner's location, holding placards reading "Hate Has No Home Here" and "We Belong."
+
+"This is not the America we came to," said Dr. Amit Shah, a local physician who has lived in the US for 20 years. "The political rhetoric has emboldened racists."
+
+The restaurant owner has apologized and banned the accused permanently. A GoFundMe campaign for the couple has raised over $50,000.`,
+
+    'toll-plaza-safety': `National Highway 44, India's longest highway, sees millions of vehicles daily. But what happens at toll plazas when you stop to pay? HardTalkIndia's undercover investigation reveals the shocking reality.
+
+THE DARK SIDE OF TOLL PLAZAS:
+Our team spent 72 hours at various toll plazas across NH44. What we found was alarming. Poor lighting, isolated locations, and minimal security make toll plazas perfect targets for criminals.
+
+Between 2 AM and 5 AM, when traffic is minimal, toll plazas become dangerous zones. We witnessed multiple incidents where truck drivers were robbed at knife-point. The CCTV cameras are either non-functional or strategically positioned to miss the actual crime spots.
+
+THE STAFF ARE NOT SAFE EITHER:
+Toll booth operators work in fear. "We have no security guards after midnight," said Ramesh, a toll operator near Agra. "Last month, our colleague was beaten up when he refused to let a truck pass without paying."
+
+WOMEN AT RISK:
+Women drivers are particularly vulnerable. The lack of proper lighting in the lanes, absence of panic buttons, and no security personnel make them easy targets. A recent incident near Jaipur where a woman was dragged out of her car at a toll plaza sent shockwaves across the country.
+
+WHAT THE DATA SAYS:
+RTI data reveals that over 2,000 crimes were reported at toll plazas in 2024 alone. These include robbery, assault, harassment, and even murder. The actual numbers are likely much higher as many cases go unreported.
+
+THE SOLUTION:
+Experts recommend 24/7 security deployment, functional CCTV with cloud backup, emergency SOS buttons every 500 meters, and better lighting infrastructure. The NHAI has promised upgrades, but implementation remains slow.
+
+Until then, think twice before stopping at a toll plaza late at night. Your safety is in your own hands.`,
+
+    'political-satire-jumla': `In the grand theater of Indian politics, promises are made with the enthusiasm of a Bollywood hero and forgotten with the speed of a TikTok trend. HardTalkIndia presents "Jumla vs Reality" - the unfiltered truth.
+
+THE 15 LAKH PROMISE:
+Remember the 2014 promise of depositing 15 lakh rupees in every Indian's account? The reality: Not a single rupee was deposited. The explanation: "It was just an idea, not a promise." The voters: Still waiting.
+
+THE SMART CITY DREAM:
+100 smart cities were promised. 11 years later, only 33 have been partially developed. The rest exist in PowerPoint presentations. The smart part seems to be limited to smart advertising.
+
+THE FARMER INCOME DOUBLING:
+Double farmers' income by 2022. Well, 2022 came and went. Farmer income increased by 27%, which is commendable but far from doubled. The farmers who protested at Delhi borders for a year might have a different opinion.
+
+THE 2 CRORE JOBS PER YEAR:
+This was the headline promise of 2014. The reality: India created approximately 12 million jobs in 10 years, averaging 1.2 million per year. The unemployment rate among graduates is at a 45-year high.
+
+THE CLEAN GANGA MISSION:
+Rs 20,000 crores allocated. The Ganga remains polluted. The crocodiles are probably filing environmental complaints. The only thing that flows freely is the funding.
+
+THE BLACK MONEY BRING BACK:
+Swiss bank accounts were supposed to be emptied into Indian coffers. The result: India's black money in Swiss banks increased by 50% since 2014. Maybe the banks offered a Buy 1 Get 1 Free scheme?
+
+THE UNFILTERED TRUTH:
+Politicians across parties are guilty of this. Jumlas are not exclusive to any one party. The Congress promised "Garibi Hatao" in 1971 - poverty still exists. The AAP promised free WiFi in Delhi - most of it does not work.
+
+The real question is: When will we, the voters, stop falling for these jumlas and start demanding accountability? The power is in our hands, quite literally - it is called the voting machine.`,
   };
 
-  return contents[story.slug] || `This is a detailed ground report on "${story.title}". Our team investigated this story extensively to bring you the unfiltered truth.\n\nThe incident has sparked widespread debate across social media platforms. Ground reality often differs significantly from mainstream media narratives. We spoke to multiple eyewitnesses and gathered evidence to present the complete picture.\n\n${story.excerpt || 'Stay tuned for the full investigative report.'}\n\nThis story falls under our ${story.category} category. We verify every fact before publishing. If you have additional information about this story, please submit it through our platform.\n\nHardTalkIndia - No Filters. No Lies. Only Ground Reality.`;
+  return contents[story.slug] || `This is a detailed ground report on "${story.title}". Our team investigated this story extensively to bring you the unfiltered truth.
+
+The incident has sparked widespread debate across social media platforms. Ground reality often differs significantly from mainstream media narratives. We spoke to multiple eyewitnesses and gathered evidence to present the complete picture.
+
+${story.excerpt || 'Stay tuned for the full investigative report.'}
+
+This story falls under our ${story.category} category. We verify every fact before publishing. If you have additional information about this story, please submit it through our platform.
+
+HardTalkIndia - No Filters. No Lies. Only Ground Reality.`;
 }
 
 function StoryImage({ src, alt, className, category }: { src: string; alt: string; className?: string; category?: string }) {
